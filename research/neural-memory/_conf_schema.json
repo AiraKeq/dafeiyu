@@ -1,0 +1,128 @@
+{
+  "enabled": {
+    "description": "插件总开关，关闭后所有功能均不生效",
+    "type": "bool",
+    "default": true,
+    "hint": "插件总开关"
+  },
+  "decay_enabled": {
+    "description": "是否启用记忆衰退，关闭后记忆强度不再随时间衰减",
+    "type": "bool",
+    "default": true,
+    "hint": "是否启用记忆衰退"
+  },
+  "short_decay_rate": {
+    "description": "短期记忆每次衰减比例，取值范围 0-1，越大遗忘越快",
+    "type": "float",
+    "default": 0.15,
+    "hint": "短期记忆每次衰减比例(0-1)"
+  },
+  "long_decay_rate": {
+    "description": "长期记忆每次衰减比例，取值范围 0-1，应低于短期衰减率",
+    "type": "float",
+    "default": 0.03,
+    "hint": "长期记忆每次衰减比例(0-1)"
+  },
+  "forget_threshold": {
+    "description": "记忆强度低于此值则遗忘，取值范围 0-1",
+    "type": "float",
+    "default": 0.1,
+    "hint": "记忆强度低于此值则遗忘"
+  },
+  "decay_check_interval": {
+    "description": "衰减检查间隔，单位秒，每隔该时间执行一次衰减",
+    "type": "int",
+    "default": 3600,
+    "hint": "衰减检查间隔(秒)"
+  },
+  "recall_top_n": {
+    "description": "每次召回的记忆数量上限",
+    "type": "int",
+    "default": 5,
+    "hint": "每次召回的记忆数量上限"
+  },
+  "consolidation_recall_threshold": {
+    "description": "短期记忆被召回多少次后巩固为长期记忆",
+    "type": "int",
+    "default": 3,
+    "hint": "短期记忆被召回多少次后巩固为长期"
+  },
+  "consolidation_strength_threshold": {
+    "description": "短期记忆强度达到此值时巩固为长期记忆，取值范围 0-1",
+    "type": "float",
+    "default": 0.8,
+    "hint": "短期记忆强度达到此值时巩固为长期"
+  },
+  "short_term_initial_strength": {
+    "description": "短期记忆创建时的初始强度",
+    "type": "float",
+    "default": 0.5,
+    "hint": "短期记忆初始强度"
+  },
+  "long_term_initial_strength": {
+    "description": "长期记忆创建时的初始强度，应高于短期初始强度",
+    "type": "float",
+    "default": 0.7,
+    "hint": "长期记忆初始强度"
+  },
+  "recall_boost": {
+    "description": "记忆被召回时的强度增强系数",
+    "type": "float",
+    "default": 0.15,
+    "hint": "召回增强系数"
+  },
+  "weak_boost": {
+    "description": "弱增强系数，用户发言命中标签时记忆强度的小幅提升值",
+    "type": "float",
+    "default": 0.05,
+    "hint": "弱增强系数(用户发言命中标签时)"
+  },
+  "max_short_term": {
+    "description": "短期记忆最大数量，超出后移除强度最低的",
+    "type": "int",
+    "default": 100,
+    "hint": "短期记忆最大数量"
+  },
+  "max_long_term": {
+    "description": "长期记忆最大数量，超出后移除强度最低的",
+    "type": "int",
+    "default": 200,
+    "hint": "长期记忆最大数量"
+  },
+  "auto_learn_enabled": {
+    "description": "是否启用自主学习，开启后自动抽取记忆",
+    "type": "bool",
+    "default": true,
+    "hint": "是否启用自主学习(自动抽取记忆)"
+  },
+  "affinity_enabled": {
+    "description": "是否启用好感度系统，关闭后不计算好感度变化",
+    "type": "bool",
+    "default": true,
+    "hint": "是否启用好感度系统"
+  },
+  "affinity_default": {
+    "description": "新用户初始好感度，取值范围 0-100",
+    "type": "int",
+    "default": 50,
+    "hint": "初始好感度(0-100)"
+  },
+  "affinity_positive_gain": {
+    "description": "正向交互好感度增量",
+    "type": "int",
+    "default": 2,
+    "hint": "正向交互好感度增量"
+  },
+  "affinity_negative_loss": {
+    "description": "负向交互好感度减量",
+    "type": "int",
+    "default": 3,
+    "hint": "负向交互好感度减量"
+  },
+  "persona_enhance_enabled": {
+    "description": "是否启用人格扮演增强，关闭后不注入人格增强提示",
+    "type": "bool",
+    "default": true,
+    "hint": "是否启用人格扮演增强"
+  }
+}

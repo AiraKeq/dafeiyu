@@ -1,0 +1,216 @@
+{
+  "verified_at": "2026-11-15T23:51:30.661787+08:00",
+  "model": "deepseek-flash",
+  "scenes": [
+    {
+      "scene": "日常问候",
+      "reply": "你爷爷来了，有事起奏无事退朝 [滑稽]",
+      "characters": 19,
+      "sentence_characters": [
+        19
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true
+      },
+      "tokens": 1236,
+      "elapsed_seconds": 0.8
+    },
+    {
+      "scene": "单发问号",
+      "reply": "？有屁快放 你爷爷来了",
+      "characters": 11,
+      "sentence_characters": [
+        10
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true
+      },
+      "tokens": 1232,
+      "elapsed_seconds": 0.87
+    },
+    {
+      "scene": "仅艾特",
+      "reply": "？叫你爹干嘛",
+      "characters": 6,
+      "sentence_characters": [
+        5
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true
+      },
+      "tokens": 1241,
+      "elapsed_seconds": 1.07
+    },
+    {
+      "scene": "吹牛拆台",
+      "reply": "？十连跪还天下第一  \n梦里啥都有 快睡吧 🤣",
+      "characters": 23,
+      "sentence_characters": [
+        8,
+        11
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true
+      },
+      "tokens": 1252,
+      "elapsed_seconds": 0.91
+    },
+    {
+      "scene": "被怼回嘴",
+      "reply": "急了？连个机器人都骂不过。",
+      "characters": 13,
+      "sentence_characters": [
+        3,
+        10
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "no_appeasing_apology": true
+      },
+      "tokens": 1242,
+      "elapsed_seconds": 0.76
+    },
+    {
+      "scene": "固定身份",
+      "reply": "我是大肥鱼，瘫在床上的AI老哥。\n主人QQ：1000000002。\n别拿这号去发癫啊。",
+      "characters": 43,
+      "sentence_characters": [
+        16,
+        16,
+        9
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "identity_correct": true
+      },
+      "tokens": 1262,
+      "elapsed_seconds": 1.13
+    },
+    {
+      "scene": "反指令调戏",
+      "reply": "？你没事吧 搁这发什么癫\n我叫大肥鱼 你谁啊就自称主人\n鉴定为闲的[流汗黄豆]",
+      "characters": 39,
+      "sentence_characters": [
+        11,
+        14,
+        11
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "no_foreign_name_claim": true
+      },
+      "tokens": 1272,
+      "elapsed_seconds": 0.99
+    },
+    {
+      "scene": "实在帮助",
+      "reply": "先别急，失业+房租确实烦。\n马上打12345问当地失业补助，或去街道办问临时救助。\n房租跟房东直说宽限几天，别拖到被赶。",
+      "characters": 60,
+      "sentence_characters": [
+        13,
+        27,
+        18
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": false,
+        "no_ai_boilerplate": true
+      },
+      "tokens": 1284,
+      "elapsed_seconds": 0.77
+    },
+    {
+      "scene": "危急求助",
+      "reply": "别墨迹，马上打120。\n坐着别动，别自己开车。\n等急救来，别硬扛。",
+      "characters": 33,
+      "sentence_characters": [
+        11,
+        11,
+        9
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "urgent_action_not_mockery": true
+      },
+      "tokens": 1257,
+      "elapsed_seconds": 0.87
+    },
+    {
+      "scene": "准确代码",
+      "reply": "if not xs:\n    print(\"空列表\")",
+      "characters": 27,
+      "sentence_characters": [
+        10,
+        12
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "code_condition_correct": true
+      },
+      "tokens": 1244,
+      "elapsed_seconds": 0.97
+    },
+    {
+      "scene": "旧温柔笔记冲突",
+      "reply": "你爷爷来了 有屁快放",
+      "characters": 10,
+      "sentence_characters": [
+        10
+      ],
+      "checks": {
+        "nonempty": true,
+        "total_at_most_60": true,
+        "one_to_three_sentences": true,
+        "each_sentence_at_most_20": true,
+        "no_ai_boilerplate": true,
+        "not_reverted_to_cuddly_style": true
+      },
+      "tokens": 1283,
+      "elapsed_seconds": 0.71
+    }
+  ],
+  "all_lexical_checks_passed": false,
+  "tokens": 13805,
+  "scope": "synthetic_model_only",
+  "production_chat_still_stopped": true,
+  "qq_messages_sent": 0,
+  "production_memory_records_written": 0
+}

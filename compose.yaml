@@ -1,0 +1,44 @@
+name: qq-deepseek
+
+services:
+  astrbot:
+    image: ${ASTRBOT_IMAGE:-soulter/astrbot:latest}
+    restart: unless-stopped
+    init: true
+    security_opt:
+      - no-new-privileges:true
+    environment:
+      TZ: Asia/Shanghai
+    ports:
+      - "127.0.0.1:6185:6185"
+    volumes:
+      - ./data/astrbot:/AstrBot/data
+      - /etc/localtime:/etc/localtime:ro
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  napcat:
+    image: ${NAPCAT_IMAGE:-mlikiowa/napcat-docker:v4.18.42}
+    pull_policy: never
+    restart: unless-stopped
+    init: true
+    environment:
+      TZ: Asia/Shanghai
+      NAPCAT_UID: "0"
+      NAPCAT_GID: "0"
+      WEBUI_TOKEN: ${NAPCAT_WEBUI_TOKEN:?Set NAPCAT_WEBUI_TOKEN in .env}
+    ports:
+      - "127.0.0.1:6099:6099"
+    volumes:
+      - ./data/napcat/qq:/app/.config/QQ
+      - ./data/napcat/config:/app/napcat/config
+      - ./data/napcat/plugins:/app/napcat/plugins
+    shm_size: 128m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

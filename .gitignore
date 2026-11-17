@@ -1,0 +1,12 @@
+.env
+data/
+*.log
+*.png
+qr-data.json
+.codegraph/
+.tools/
+manager/.runtime/
+manager/.browser-check/
+manager/.http-test-*/
+__pycache__/
+*.pyc

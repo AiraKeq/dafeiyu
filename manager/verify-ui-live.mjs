@@ -1,0 +1,50 @@
+// Real local URL verification, entirely read-only on the cloud. No start/save/backup actions.
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+import {getLaunchUrl} from './launch.mjs';
+import {browserPage} from './browser-tools.mjs';
+const here=path.dirname(fileURLToPath(import.meta.url));
+const artifacts=path.join(here,'artifacts');fs.mkdirSync(artifacts,{recursive:true});
+const page=await browserPage();
+try {
+ await page.size(1440,1000);
+ await page.navigate(await getLaunchUrl({startIfNeeded:false}));
+ await page.waitFor("document.getElementById('serviceBadge').textContent.includes('已暂停') && document.getElementById('scopeTable').children.length===4");
+ assert.equal(await page.evaluate('location.hash'), '');
+ assert.equal(await page.evaluate("document.getElementById('qqBadge').textContent"),'在线');
+ assert.equal(await page.evaluate("document.getElementById('versionValue').textContent"),'1.4.1');
+ assert.equal(await page.evaluate("document.getElementById('queueCount').textContent"),'0');
+ assert.ok(await page.evaluate('document.documentElement.scrollWidth<=innerWidth'));
+ await page.shot(path.join(artifacts,'总览-桌面.png'));
+ await page.evaluate("document.getElementById('startButton').click()");
+ await page.waitFor("document.getElementById('confirmDialog').open");
+ assert.ok(await page.evaluate("document.getElementById('confirmDescription').textContent.includes('积压')"));
+ await page.evaluate("document.getElementById('confirmCancel').click()");
+ await page.evaluate("document.querySelector('[data-view=personality]').click()");
+ await page.waitFor("Array.from(document.getElementById('personalityText').value).length===1797 && !document.getElementById('personalityReload').disabled");
+ assert.ok(await page.evaluate("document.getElementById('polishBudget').textContent.includes('1,949')"));
+ assert.ok(await page.evaluate("document.getElementById('personalitySave').disabled"));
+ await page.evaluate("document.getElementById('styleScope').value='aiocqhttp:GroupMessage:1000000003'; document.getElementById('styleScope').dispatchEvent(new Event('change',{bubbles:true}))");
+ await page.waitFor("Array.from(document.getElementById('styleNotes').value).length===226 && !document.getElementById('styleReload').disabled");
+ await page.shot(path.join(artifacts,'性格与成长-桌面.png'));
+ await page.evaluate("document.querySelector('[data-view=memory]').click()");
+ await page.evaluate("document.getElementById('memoryScope').value='aiocqhttp:GroupMessage:1000000003';document.getElementById('memoryScope').dispatchEvent(new Event('change',{bubbles:true}))");
+ await page.waitFor("document.querySelector('#memoryResults article') && !document.getElementById('memoryReload').disabled");
+ assert.ok(await page.evaluate("document.querySelectorAll('#memoryResults article').length>0"));
+ // Only metadata is recorded; real chat/remembered text never goes into test output.
+ const items=await page.evaluate("document.querySelectorAll('#memoryResults article').length");
+ await page.evaluate("document.querySelector('[data-view=backups]').click()");
+ await page.waitFor("document.getElementById('backupsTable').textContent.includes('尚未') && !document.getElementById('backupsReload').disabled");
+ assert.ok(await page.evaluate("document.getElementById('allRules').children.length>20"));
+ await page.evaluate("document.querySelector('[data-view=overview]').click()");
+ await page.size(390,844);
+ assert.ok(await page.evaluate('document.documentElement.scrollWidth<=innerWidth'));
+ await page.evaluate('scrollTo(0,0)');
+ await page.shot(path.join(artifacts,'总览-手机.png'));
+ assert.deepEqual(page.errors,[]);
+ const summary={verified_at:new Date().toISOString(),url:'http://127.0.0.1:17865/',service:'stopped',qq:'online',scopes:4,first_event_page_items:items,personality_characters:1797,combined_characters:1949,style_characters:226,desktop:[1440,1000],mobile:[390,844],browser_errors:0,production_write_actions:0};
+ fs.writeFileSync(path.join(artifacts,'真实页面验收.json'),JSON.stringify(summary,null,2)+'\n');
+ console.log(JSON.stringify(summary));
+} finally {await page.close();}

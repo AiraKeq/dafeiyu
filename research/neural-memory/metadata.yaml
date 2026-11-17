@@ -1,0 +1,6 @@
+name: astrbot_plugin_neural_network_memory
+display_name: llm神经网络记忆
+desc: 像人类一样记忆与遗忘——短期/长期分层存储，记忆随时间衰退、随召回增强，自动学习用户偏好，好感度随互动演变，人格扮演随关系进阶，越聊越懂你
+version: v1.0.0
+author: 浅月tniay
+astrbot_version: ">=0.0.1"

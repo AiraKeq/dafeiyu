@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#102e49">
+  <title>大肥鱼 · 聊天管理器</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/app.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9M12 16C5 16 3 12 3 6c6 0 9 3 9 10ZM12 12c0-6 3-9 9-9 0 6-3 9-9 9Z"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 5v16M12 5C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 1Z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m3 7 9-4 9 4-9 4-9-4ZM3 7v11l9 4 9-4V7M12 11v11M7 5l10 4v5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 4 13 8-13 8V4Z"/></symbol>
+    <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6l8-4Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="m16 3 5 5M4 15 16 3a2 2 0 0 1 3 0l2 2a2 2 0 0 1 0 3L9 20l-6 1 1-6Z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-wave" viewBox="0 0 24 24"><path d="M2 8c4-5 6 5 10 0s6 5 10 0M2 16c4-5 6 5 10 0s6 5 10 0"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7v.2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="3"/><path d="M8 10V6a4 4 0 0 1 8 0v4M12 14v3"/></symbol>
+  </svg>
+  <a class="skip-link" href="#mainContent">跳到主要内容</a>
+  <div class="app-layout">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#" id="brandHome" aria-label="大肥鱼，总览">
+        <svg class="brand-fish" viewBox="0 0 76 58" fill="none" aria-hidden="true"><path d="M55 22c5-2 9-6 12-10 2 6 1 11-3 16 4 3 6 7 6 12-7-1-12-4-15-8-4 12-16 18-29 15C11 44 5 34 8 23c3-12 17-17 30-13 8 2 13 6 17 12Z" fill="#BCE9EE"/><path d="M12 34c10 6 23 8 37 2-7 10-19 14-30 8-4-2-6-6-7-10Z" fill="#76BACB"/><path d="M31 37c1 5 5 7 11 6l-5-9" fill="#E7F7F8"/><circle cx="22" cy="24" r="2.4" fill="#173952"/><path d="M15 30c2 2 5 2 7 0M33 8V4m4 5 3-3" stroke="#BCE9EE" stroke-width="2.4" stroke-linecap="round"/></svg>
+        <span class="brand-copy"><strong>大肥鱼<span class="brand-dot">.</span></strong><small>聊天与记忆的栖息地</small></span>
+      </a>
+      <div class="nav-caption">我的管理空间</div>
+      <nav class="navigation">
+        <button class="nav-item active" data-view="overview" aria-current="page"><svg class="icon"><use href="#i-grid"/></svg><span>总览</span><span class="nav-dot"></span></button>
+        <button class="nav-item" data-view="personality"><svg class="icon"><use href="#i-sprout"/></svg><span>性格与成长</span></button>
+        <button class="nav-item" data-view="memory"><svg class="icon"><use href="#i-book"/></svg><span>记忆档案</span></button>
+        <button class="nav-item" data-view="backups"><svg class="icon"><use href="#i-box"/></svg><span>备份与规则</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="sidebar-note"><svg class="icon"><use href="#i-wave"/></svg><p>记得每一次相遇，<br>也留一点生长的空间。</p></div>
+        <div class="local-indicator"><svg class="icon"><use href="#i-shield"/></svg><span>本机专用控制台<small>127.0.0.1:17865</small></span></div>
+      </div>
+    </aside>
+
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumb"><span>大肥鱼管理器</span><span class="breadcrumb-separator">/</span><strong id="breadcrumbCurrent">总览</strong></div>
+        <div class="topbar-actions"><span id="sessionBadge" class="badge neutral"><span class="status-dot"></span>正在验证会话</span><button id="refreshButton" class="icon-button" title="刷新当前状态，不覆盖未保存内容" aria-label="刷新当前状态" disabled><svg class="icon"><use href="#i-refresh"/></svg></button></div>
+      </header>
+
+      <main id="mainContent" class="main-content" tabindex="-1">
+        <section id="authPanel" class="auth-panel" aria-labelledby="authTitle">
+          <div class="auth-mark"><svg class="icon"><use href="#i-lock"/></svg></div>
+          <p class="eyebrow">只属于你的本机管理空间</p>
+          <h1 id="authTitle">正在轻轻叩响舱门…</h1>
+          <p id="authDescription" role="status">正在验证本机会话。未登录前不会读取服务状态或聊天内容。</p>
+          <button id="sessionRetry" class="button primary" hidden>重新检查登录</button>
+          <div class="auth-footnote"><svg class="icon"><use href="#i-shield"/></svg><span>登录令牌仅用于兑换会话，不会显示或存入本地存储。</span></div>
+        </section>
+
+        <div id="appContent" hidden>
+          <div id="globalError" class="notice error" role="alert" hidden></div>
+          <section id="view-overview" class="view" aria-labelledby="overviewTitle">
+            <div class="page-heading"><div><p class="eyebrow">在这里，照看每一朵涟漪</p><h1 id="overviewTitle">今日海面</h1><p class="page-description">运行、连接与记忆，各自清楚，各自安心。</p></div><div class="updated-at"><span class="live-mark"></span><span id="lastChecked">尚未获取状态</span><small>每 30 秒刷新状态</small></div></div>
+
+            <section class="service-hero" aria-labelledby="serviceTitle">
+              <div class="hero-decoration" aria-hidden="true"><svg viewBox="0 0 380 210" fill="none"><circle cx="263" cy="80" r="115" stroke="currentColor"/><circle cx="263" cy="80" r="84" stroke="currentColor"/><path d="M110 91c40-38 102-34 137 8 17-5 34-18 46-35 6 25 0 44-19 57 13 10 20 23 18 40-23-3-42-13-50-25-33 35-93 47-129 13-18-17-21-39-3-58Z" fill="currentColor"/><path d="M0 185c64-32 109 22 173 0s115-29 207-5M0 200c64-32 109 22 173 0s115-29 207-5" stroke="currentColor"/></svg></div>
+              <div class="hero-copy"><div class="hero-label"><span class="hero-kicker">聊天服务 · ASTRBOT</span><span id="serviceBadge" class="badge neutral"><span class="status-dot"></span>状态未知</span></div><h2 id="serviceTitle">正在确认海面状态</h2><p id="serviceDescription">未确认服务状态前，不开放任何写入或启停操作。</p><div class="hero-actions"><button id="startButton" class="button light" disabled><svg class="icon"><use href="#i-play"/></svg>启用大肥鱼</button><button id="stopButton" class="button hero-outline" disabled><svg class="icon"><use href="#i-stop"/></svg>停止服务</button></div><p class="hero-caution">启用可能处理旧队列与日评；不会替你启动 NapCat，也不代表 QQ 或模型已就绪。</p></div>
+            </section>
+
+            <div class="metric-grid">
+              <article class="metric-card"><div class="metric-label"><span>对话空间</span><svg class="icon"><use href="#i-book"/></svg></div><div class="metric-number" id="scopeCount">—</div><p>按 scope 独立整理记忆</p></article>
+              <article class="metric-card"><div class="metric-label"><span>待处理队列</span><svg class="icon"><use href="#i-wave"/></svg></div><div class="metric-number" id="queueCount">—</div><p id="queueDescription">失败批次尚未获取</p></article>
+              <article class="metric-card"><div class="metric-label"><span>最近完成日评</span><svg class="icon"><use href="#i-clock"/></svg></div><div class="metric-number metric-date" id="reviewDay">—</div><p id="reviewDescription">不在此页面触发日评</p></article>
+              <article class="metric-card"><div class="metric-label"><span>当前版本</span><svg class="icon"><use href="#i-box"/></svg></div><div class="metric-number metric-version" id="versionValue">—</div><p>来自云端实际状态</p></article>
+            </div>
+
+            <div class="overview-columns">
+              <section class="card connection-card"><div class="card-heading"><div><p class="section-kicker">各自独立的连接状态</p><h2>连接与模型</h2></div><svg class="icon heading-icon"><use href="#i-wave"/></svg></div><div class="connection-row"><div class="connection-symbol">QQ</div><div class="connection-detail"><h3>QQ 连接 <span id="qqBadge" class="badge neutral">未知</span></h3><p id="qqAccount">账号尚未获取</p><p id="qqReason" class="subtle">服务运行不等于 QQ 在线。</p></div></div><div class="connection-row"><div class="connection-symbol model-symbol"><svg class="icon"><use href="#i-sprout"/></svg></div><div class="connection-detail"><h3 id="modelName">模型尚未获取</h3><p id="modelKey">模型密钥状态未知</p><p class="subtle">可用性未验证 · 管理器不调用模型探活</p></div></div><div class="mini-stat-row"><span>回复分页</span><strong id="paginationState">活跃 — / 过期 —</strong></div></section>
+              <section class="card"><div class="card-heading"><div><p class="section-kicker">有边界，才有安心的陪伴</p><h2>当前关键规则</h2></div><button class="text-button" data-view="backups">查看全部<svg class="icon"><use href="#i-arrow"/></svg></button></div><dl id="overviewRules" class="rule-summary"><div class="empty-inline">等待读取已配置规则。</div></dl><div class="soft-note"><svg class="icon"><use href="#i-lock"/></svg><span>性格、成长便笺与事件记忆，仅在服务暂停时可编辑。</span></div></section>
+            </div>
+            <section class="card" aria-labelledby="semanticTitle"><div class="card-heading"><div><p class="section-kicker">本地中文模型 · 群聊文本不传给新增外部接口</p><h2 id="semanticTitle">语义记忆 <span id="semanticBadge" class="badge neutral">未知</span></h2></div><svg class="icon heading-icon"><use href="#i-book"/></svg></div><div class="mini-stat-row"><span>模型 / 向量维度</span><strong id="semanticModel">—</strong></div><div class="mini-stat-row"><span>有效索引 / 当前有效事件</span><strong id="semanticCount">— / —</strong></div><div class="mini-stat-row"><span>待同步 / 最近完成</span><strong id="semanticSync">—</strong></div><p id="semanticDescription" class="subtle">读取状态不会构建索引或调用模型。索引与当前事实核验通过后才用于回忆。</p></section>
+            <div id="statusWarnings" class="notice warning" hidden></div>
+            <section class="card scope-card"><div class="card-heading"><div><p class="section-kicker">每一处相遇，各有一本记忆</p><h2>对话空间</h2></div><span class="muted small">总览不读取聊天正文</span></div><div class="table-scroll"><table><thead><tr><th scope="col">对话空间</th><th scope="col">原始消息</th><th scope="col">事件记忆</th><th scope="col">成长更新</th><th scope="col"><span class="sr-only">操作</span></th></tr></thead><tbody id="scopeTable"><tr><td colspan="5" class="table-empty">等待读取对话空间。</td></tr></tbody></table></div></section>
+          </section>
+
+          <section id="view-personality" class="view" aria-labelledby="personalityTitle" hidden>
+            <div class="page-heading"><div><p class="eyebrow">把性格种下，让表达慢慢生长</p><h1 id="personalityTitle">性格与成长</h1><p class="page-description">稳定的说话基调，与每个对话空间独立的成长便笺。</p></div><span class="badge neutral edit-state">状态未确认 · 只读</span></div>
+            <div class="notice info write-lock-note"><svg class="icon"><use href="#i-lock"/></svg><span>确认服务已暂停后，才能编辑与保存；未知状态不开放写入。</span></div>
+            <div class="editor-columns">
+              <section class="card editor-card"><div class="card-heading"><div><p class="section-kicker">稳定的人设底色</p><h2>基础性格</h2></div><button id="personalityReload" class="icon-button" title="重新载入基础性格" aria-label="重新载入基础性格"><svg class="icon"><use href="#i-refresh"/></svg></button></div><p class="field-intro">在这里定义说话的基调。保存前会备份，并校验当前内容版本。</p><form id="personalityForm"><label for="personalityText">性格描述 <span class="muted">最多 5848 字</span> <span id="personalityDirty" class="dirty-label" hidden>未保存</span></label><textarea id="personalityText" rows="12" placeholder="进入页面后读取已保存的性格；不自动填入示例。" disabled></textarea><div class="field-meta"><span id="personalityCount">0 字</span><span id="personalityRevision">尚未载入</span></div><div class="budget-box"><div class="budget-heading"><span>轻量润色上下文预算</span><strong id="polishBudget">— / 2000 字</strong></div><progress class="budget-track" id="budgetMeter" value="0" max="2000" aria-label="润色上下文预算使用量"></progress><p id="budgetHint">以服务端返回的合计字数为准；预算不是无限扩展的聊天历史。</p></div><div id="personalityError" class="inline-error" role="alert" hidden></div><div class="form-actions"><span id="personalitySaveState" class="small muted">未修改</span><button id="personalitySave" class="button primary" type="submit" disabled><svg class="icon"><use href="#i-check"/></svg>保存性格</button></div></form></section>
+              <section class="card editor-card"><div class="card-heading"><div><p class="section-kicker">只属于这段相处的表达习惯</p><h2>成长便笺</h2></div><button id="styleReload" class="icon-button" title="重新载入当前成长便笺" aria-label="重新载入当前成长便笺" disabled><svg class="icon"><use href="#i-refresh"/></svg></button></div><label for="styleScope">对话空间</label><select id="styleScope"><option value="">选择一个对话空间</option></select><div class="style-day"><svg class="icon"><use href="#i-clock"/></svg><span id="styleDay">选择空间后读取当前便笺</span></div><form id="styleForm"><label for="styleNotes">当前成长便笺 <span class="muted">最多 1000 字</span> <span id="styleDirty" class="dirty-label" hidden>未保存</span></label><textarea id="styleNotes" rows="10" placeholder="选择对话空间后，便笺会出现在这里。" disabled></textarea><div class="field-meta"><span id="styleCount">0 字</span><span id="styleRevision">尚未载入</span></div><div class="soft-note"><svg class="icon"><use href="#i-info"/></svg><span>这里只显示已保存的当前便笺与记录日期。没有可追溯历史时，不生成成长时间线。</span></div><div id="styleError" class="inline-error" role="alert" hidden></div><div class="form-actions"><span id="styleSaveState" class="small muted">未修改</span><button id="styleSave" class="button primary" type="submit" disabled><svg class="icon"><use href="#i-check"/></svg>保存成长便笺</button></div></form></section>
+            </div>
+          </section>
+
+          <section id="view-memory" class="view" aria-labelledby="memoryTitle" hidden>
+            <div class="page-heading"><div><p class="eyebrow">让记忆有迹可循</p><h1 id="memoryTitle">记忆档案</h1><p class="page-description">按对话空间查阅事件与原文。只有进入这里，才会请求聊天内容。</p></div><span class="badge neutral edit-state">状态未确认 · 只读</span></div>
+            <div class="notice info"><svg class="icon"><use href="#i-info"/></svg><span><strong>事件记忆与原始消息分开保存。</strong>删除事件不会删除聊天原文、成长便笺或备份，也不等于彻底遗忘；原文可能再次参与整理。</span></div>
+            <section class="card memory-toolbar"><div class="memory-filter-row"><div class="scope-filter"><label for="memoryScope">对话空间</label><select id="memoryScope"><option value="">选择一个对话空间</option></select></div><div class="kind-filter"><span class="field-label" id="kindLabel">档案类型</span><div class="segmented" role="group" aria-labelledby="kindLabel"><button id="kindEvents" type="button" class="selected" aria-pressed="true" data-kind="events">事件记忆</button><button id="kindMessages" type="button" aria-pressed="false" data-kind="messages">聊天原文<span class="readonly-tag">只读</span></button></div></div></div><form id="memorySearch" class="search-form" role="search"><label class="sr-only" for="memoryQuery">搜索当前空间的档案</label><div class="search-input"><svg class="icon"><use href="#i-search"/></svg><input id="memoryQuery" type="search" placeholder="搜索标题、内容或关键词…" autocomplete="off" maxlength="200"></div><button id="searchButton" class="button primary" type="submit">搜索档案</button><button id="memoryReload" class="icon-button" type="button" title="重新载入第一页" aria-label="重新载入第一页"><svg class="icon"><use href="#i-refresh"/></svg></button></form><p class="field-help muted small pagination-help">关键词最多 200 字。翻页沿用已提交的查询；来源数据变化或游标过期时，请重新搜索。</p></section>
+            <section id="eventEditor" class="card event-editor" aria-labelledby="eventEditorTitle" hidden><div class="card-heading"><div><p class="section-kicker">仅修改这一条事件 · 带版本校验</p><h2 id="eventEditorTitle">编辑事件记忆</h2></div><button id="eventClose" class="icon-button" aria-label="关闭事件编辑"><svg class="icon"><use href="#i-close"/></svg></button></div><p id="eventLock" class="field-intro">仅在暂停时可保存或删除。原始聊天消息始终只读。</p><form id="eventForm"><label for="eventTitle">标题 <span class="muted">最多 100 字</span></label><input id="eventTitle" type="text" required><label for="eventDetail">事件详情 <span class="muted">最多 640 字</span></label><textarea id="eventDetail" rows="5"></textarea><label for="eventCore">核心摘要 <span class="muted">最多 160 字</span></label><textarea id="eventCore" rows="3" required></textarea><div class="event-small-fields"><div><label for="eventImportance">重要度 <span class="muted">0–10</span></label><input id="eventImportance" type="number" min="0" max="10" step="any" required></div><div><label for="eventKeywords">关键词 <span class="muted">每行一个</span></label><textarea id="eventKeywords" rows="3" placeholder="用换行分隔关键词，不使用逗号拆分"></textarea></div></div><p id="eventCounts" class="field-help muted small">关键词最多 16 个，每个最多 48 字；各项长度由服务端再次校验。</p><div id="eventError" class="inline-error" role="alert" hidden></div><div class="form-actions"><button id="eventDelete" class="button danger-outline" type="button">删除这条记忆</button><div class="action-group"><span id="eventDirty" class="dirty-label" hidden>未保存</span><button id="eventSave" class="button primary" type="submit" disabled>保存记忆</button></div></div></form></section>
+            <div class="results-heading"><h2 id="memoryResultsTitle">事件记忆</h2><span id="memoryMeta" class="small muted">尚未选择对话空间</span></div><div id="memoryError" class="notice error" role="alert" hidden></div><div id="memoryResults" class="memory-results"><div class="empty-state"><svg class="icon"><use href="#i-book"/></svg><h3>先选一处相遇</h3><p>选择一个对话空间，再查阅属于它的记忆。</p></div></div><div class="pagination"><span id="memoryPageInfo" class="small muted">每页最多 20 条 · 版本校验分页</span><div class="action-group"><button id="memoryFirst" class="button secondary" hidden>回到第一页</button><button id="memoryNext" class="button secondary" disabled>下一页<svg class="icon"><use href="#i-arrow"/></svg></button></div></div>
+          </section>
+
+          <section id="view-backups" class="view" aria-labelledby="backupsTitle" hidden>
+            <div class="page-heading"><div><p class="eyebrow">在改变之前，留一份安心</p><h1 id="backupsTitle">备份与规则</h1><p class="page-description">冷态备份守住原样，明确的规则守住边界。</p></div><span class="badge neutral edit-state">状态未确认 · 只读</span></div>
+            <section class="backup-banner"><div class="backup-illustration"><svg class="icon"><use href="#i-box"/></svg></div><div><h2>为记忆留一个安全的停泊点</h2><p>暂停后备份记忆库、成长便笺与当前人设。不会回传全配置或模型密钥，也不会自动下载聊天正文。</p></div><button id="backupButton" class="button primary" disabled><svg class="icon"><use href="#i-box"/></svg>创建冷态备份</button></section>
+            <div class="notice info"><svg class="icon"><use href="#i-shield"/></svg><span><strong>恢复属于维护操作。</strong>需要在暂停状态下，从云端备份按维护流程恢复。这里不提供一键恢复，也不承诺一键撤销修改。</span></div>
+            <section class="card"><div class="card-heading"><div><p class="section-kicker">仅列出由本管理器创建的备份</p><h2>备份记录</h2></div><button id="backupsReload" class="text-button"><svg class="icon"><use href="#i-refresh"/></svg>刷新列表</button></div><div id="backupsError" class="inline-error" role="alert" hidden></div><div class="table-scroll"><table><thead><tr><th scope="col">备份标识</th><th scope="col">创建时间</th><th scope="col">操作来源</th></tr></thead><tbody id="backupsTable"><tr><td colspan="3" class="table-empty">进入页面后读取备份记录。</td></tr></tbody></table></div></section>
+            <section class="card rules-card"><div class="card-heading"><div><p class="section-kicker">来自当前已配置字段 · 只读</p><h2>运行规则</h2></div><span class="badge neutral">不在此修改配置</span></div><dl id="allRules" class="all-rules"><div class="empty-inline">等待读取已配置规则。</div></dl></section>
+            <div class="principle-grid"><article><span>01</span><h3>先暂停，再整理</h3><p>未知状态拒绝写入。保存时备份、加锁并校验版本，最终由服务端把关。</p></article><article><span>02</span><h3>记忆各有边界</h3><p>事件、原文和成长便笺彼此独立。编辑事件不会同步改写它们。</p></article><article><span>03</span><h3>启用需要你的决定</h3><p>只有显式确认才会启用已核验的服务，不启动另一套机器人或 NapCat。</p></article></div>
+          </section>
+          <footer class="page-footer"><span>大肥鱼 · 让每一段记忆，都有妥帖的归处</span><span>本机管理 / 时间按本机时区显示</span></footer>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div id="toastRegion" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle" aria-describedby="confirmDescription"><form id="confirmForm"><div id="confirmIcon" class="dialog-icon"><svg class="icon"><use href="#i-shield"/></svg></div><h2 id="confirmTitle">确认操作</h2><p id="confirmDescription"></p><ul id="confirmDetails" class="confirm-details" hidden></ul><div id="confirmPhraseGroup" hidden><label for="confirmPhrase">请输入 <strong id="confirmPhraseLabel"></strong> 以确认</label><input id="confirmPhrase" type="text" autocomplete="off" spellcheck="false"><p class="field-help">必须完全一致，不会自动忽略空格。</p></div><div class="dialog-actions"><button id="confirmCancel" class="button secondary" type="button">取消</button><button id="confirmSubmit" class="button primary" type="submit">确认</button></div></form></dialog>
+  <noscript><div class="noscript-warning">此管理器需要启用 JavaScript 才能验证登录并安全操作；当前不会读取或更改任何服务。</div></noscript>
+</body>
+</html>

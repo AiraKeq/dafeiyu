@@ -1,0 +1,6 @@
+name: whale_memory
+display_name: 鲸鱼的记忆与性格
+desc: 双评分与本地向量记忆、每日成长、25秒接话、命令静默、分页识图与不确定内容联网核验。
+version: 1.6.1
+author: Local
+astrbot_version: ">=4.29.4,<5"

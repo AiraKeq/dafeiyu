@@ -1,0 +1,21 @@
+{
+  "verified_at": "2026-11-15T18:41:30.648Z",
+  "url": "http://127.0.0.1:17865/",
+  "service": "stopped",
+  "qq": "online",
+  "scopes": 4,
+  "first_event_page_items": 11,
+  "personality_characters": 1797,
+  "combined_characters": 1949,
+  "style_characters": 226,
+  "desktop": [
+    1440,
+    1000
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "browser_errors": 0,
+  "production_write_actions": 0
+}

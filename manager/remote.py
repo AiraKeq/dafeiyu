@@ -879,7 +879,7 @@ class Controller:
         p, c = self.configured()
         if p.get('group_ids') != ['1000000003'] or p.get('admin_ids') != ['1000000002'] or c.get('admins_id') != ['1000000002']:
             fail('IDENTITY', '正式群或管理员配置不匹配，拒绝写入。')
-        if self.version() not in ('1.4.1', '1.5.0', '1.6.0', '1.6.1'):
+        if self.version() not in ('1.4.1', '1.5.0', '1.6.0', '1.6.1', '1.6.2'):
             fail('SCHEMA', '插件版本未经适配，拒绝写入。')
         for name in ('reply-queue.json.pending', 'review-state.pending', 'segment-score-state.pending'):
             self.path_check(self.data / name, required=False)
